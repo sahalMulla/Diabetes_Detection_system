@@ -1,0 +1,154 @@
+Step1:
+	Importing libraries
+Step2:
+	Loading dataset and printing first 5 rows
+Step3:
+	Checking shape of DataFrame ( it will give tupe )
+Step4:
+	Checking data types of each column
+Step5:
+	 Printing summary of dataset
+Step6:
+	Printing statistical summary of your numeric columns
+Step7:
+	checking for missing values in each column of dataset
+Step8:
+	Printing first 5 rows of dataset
+Step9:
+	shows how many samples belong to each class (0 or 1) in the target column.
+Step10:
+	returns the distinct values present in the Outcome column
+Step11:
+	 creates a groupby object that groups your data by the values in the Outcome column
+step12: 
+	group the data into two groups:
+		Group 0: people without diabetes
+		Group 1: people with diabetes
+		.mean(): for each group, it calculates the average of all other columns.
+Step13:
+	df['Outcome'] = the column that tells whether a person has diabetes (1) or not (0). This is the target/output.
+	df.drop(['Outcome'], axis=1) = remove the Outcome column from the dataset. What remains are the input/features (like Glucose, BMI, etc.).
+	  X = all columns except Outcome → These are the input features you use to make predictions.
+	  y = only the Outcome column → This is the label/output you want to predict (diabetes or not).
+Step14:
+	it shows you the first 5 rows of the X dataset — which means the first 5 examples with all input features except the 'Outcome' column.
+Step15:
+	it will show the first 5 values of the y dataset — which is your target variable (the column you want to predict).
+
+
+
+
+Data Standardization
+
+
+
+
+Step16: 
+	StandardScaler is a tool from a library called scikit-learn.
+	It’s used to scale your data so all features (columns) have a mean of 0 and a standard deviation of 1.
+Step17:
+	It looks at your input data X and calculates the mean and standard deviation for each feature (each column).
+Step18:
+	is applying the scaling to your input data X.
+	It takes each feature (column) in X.
+	Subtracts the mean of that feature (calculated during fit).
+	Divides by the standard deviation of that feature.
+	This results in each feature having a mean of 0 and standard deviation of 1 — this is called standardization or z-score normalization.
+	Now, standardized_data contains your scaled input data, ready for machine learning models that work better with standardized data.
+Step19:
+	standardized_data is a NumPy array containing your input features (X) after scaling. It no longer looks like the original DataFrame but instead shows the standardized values for each feature.
+Step20:
+	now your X has normalized data, ready to be used in machine learning models, and Y holds the labels you want to predict (like 0 or 1 for diabetes outcome).
+Step21:
+	X now holds your standardized feature data as a NumPy array (because .transform() returns an array). It means all your input features are scaled to have a mean of 0 and a standard deviation of 1.
+Step22:
+	You import and create a Logistic Regression model.
+	You fit (train) the model with your inputs X and target y.
+	You use the model to predict the outcome on the same training data.
+	Then, you calculate the accuracy by comparing predicted results with the true labels.
+	Finally, you print the accuracy score.
+	This accuracy tells you how many predictions your model got right on the training set.
+Step23:
+	train_test_split() splits your dataset into training (80%) and testing (20%) parts.
+	stratify=Y makes sure that the proportion of each class (0 or 1 in your Outcome) stays the same in both train and test sets. This avoids class imbalance issues.
+	random_state=2 ensures reproducibility — if you run the code again, you get the same split.
+
+
+
+
+Training Model:
+
+
+
+
+Step24:
+	You want to find the best straight line (or flat surface) that splits your data points into different groups (like “diabetes” or “no diabetes”).
+	SVM tries to find the line that separates the classes with the largest margin (biggest gap between classes).
+Step25:
+	This line trains your SVM classifier using the training data:
+	X_train = features (input data) for training
+	y_train = labels (correct answers) for training
+	In real life, this is like teaching the model by showing it examples with answers, so it learns how to make predictions on new data later.
+Step26:
+	 the model predict the labels for the training data (X_train) after learning from it.
+	It’s like testing the model on the examples it already saw during training, to check how well it learned.
+Step27:
+	It is a list (array) of predictions made by your model on the training data (X_train).
+Step28:
+	X_train_prediction: model's predictions on the training data
+	y_train: actual correct labels for training data
+	accuracy_score(...): checks how many predictions matched the actual values
+	So, this line gives the accuracy of your SVM model on training data — basically telling you how well your model has learned.
+Step29:
+	It will print the percentage of correct predictions your model made on the training data — that is, the data it learned from.
+Step30:
+	You're asking your trained model (called classifier) to make predictions on new, unseen data — this is your X_test data (test inputs like age, blood sugar, etc.) and printing
+Step31:
+	is calculating how well your model predicted the test data.
+		What it means:
+			X_test_predict is your model’s predictions on the test data.
+			y_test is the actual true labels for the test data.
+			accuracy_score() compares those two arrays and gives you a number between 0 and 1 that tells you how many predictions were correct.
+				Example:
+				If the accuracy score is 0.85, it means 85% of the predictions matched the true labels.
+Step32:
+	It shows how well your trained model is doing when making predictions on new, unseen data.
+
+
+
+
+Make a Predictive system to predict whether a person is diabetic or not:
+
+
+
+
+Step33:
+	Preprocesses a single input sample by converting to a NumPy array, reshaping, and applying standardization using a fitted scaler.
+Step34:
+	Uses the trained model to predict the outcome (e.g., diabetes status) based on the standardized input data.
+Step35:
+	checks the prediction and prints a clear message
+Step36:
+	You train a random forest classifier on training data.
+	Check how well it performs on both training and testing sets.
+	Printing accuracy scores helps evaluate model quality and whether it’s overfitting or underfitting.
+Step37:
+	You train a Logistic Regression model on training data.
+	Evaluate its accuracy on both training and testing data.
+	This helps assess both learning quality and generalization ability.
+Step38:
+	Saving model as .pkl
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
